@@ -5,7 +5,7 @@ int thanhToanHoaDon(float *soDuVi, float tongTien, float tyLeHoan, float *tienHo
 
 #ifndef UNIT_TEST
 int main() {
-    float soDu = 500000.0;
+    float soDu = 10000000.0;
     float hoaDon, tyLe;
     float tienDuocHoan = 0.0;
 
@@ -34,6 +34,10 @@ int main() {
 int thanhToanHoaDon(float *soDuVi, float tongTien, float tyLeHoan, float *tienHoan) {
     // TODO: Viết code thanh toán và cập nhật số dư, tiền hoàn (dùng con trỏ)
     // Trả về 1 nếu thành công, 0 nếu thất bại (không đủ tiền)
-    
-    return 0;
+    if (*soDuVi < tongTien) {
+        return 0;// khong du tien
+    }
+    *tienHoan = tongTien * (tyLeHoan / 100.0f);
+    *soDuVi = *soDuVi - tongTien + *tienHoan;
+    return 1;//thanh cong
 }
